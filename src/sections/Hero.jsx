@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import Target from '../components/Target';
 import { useMediaQuery } from 'react-responsive';
 import { calculateSizes } from '../constants/index';
-import ReactLogo from '../components/reactLogo';
+import ReactLogo from '../components/ReactLogo';
 import Cube from '../components/Cube';
 import Rings from '../components/Ring';
 import HeroCamera from '../components/HeroCamera';
