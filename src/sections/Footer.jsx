@@ -1,23 +1,32 @@
-
+import { profile, socials } from '../constants/index.js';
 
 const Footer = () => {
   return (
-    <section className='c-space pb-3 pt-3 border-t border-black-300 flex justify-between items-center flex-wrap gap-5'>
-        <div className='text-white-500 flex gap-2'>
-            <p>Terms & Conditions</p>
-            <p></p>
-            <p>Privicy Policy</p>
-        </div>
-        <div className='flex gap-3'>
-            <div className='social-icon'>
-                <img src="/assets/github.svg" alt="github" className='w-1/2 h-1/2' />
-            </div>
-            <div className='social-icon'>
-                <img src="/assets/linkedin.svg" alt="github" className='w-1/2 h-1/2 invert-0' />
-            </div>
-        </div>
-    </section>
-  )
-}
+    <footer className="border-t border-white/10">
+      <div className="c-space mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+        <p className="font-display text-sm font-semibold text-white">
+          OM<span className="gradient-text">.</span>WANKAR
+        </p>
 
-export default Footer
+        <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-white/50">
+          {socials.map((s) => (
+            <a
+              key={s.id}
+              href={s.href}
+              target={s.name === 'Email' ? undefined : '_blank'}
+              rel="noreferrer"
+              className="transition-colors hover:text-white">
+              {s.name}
+            </a>
+          ))}
+        </div>
+
+        <p className="text-xs text-white/40">
+          © {new Date().getFullYear()} {profile.name}. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

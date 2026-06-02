@@ -1,13 +1,24 @@
-const Button = ({ name, isBeam = false, containerClass }) => {
+const Button = ({ children, href, variant = 'primary', onClick, download, target, className = '' }) => {
+  const base = variant === 'primary' ? 'btn-primary' : 'btn-ghost';
+  const classes = `${base} ${className}`;
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        download={download}
+        target={target}
+        rel={target === '_blank' ? 'noreferrer' : undefined}
+        className={classes}>
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <button className={`btn ${containerClass}`}>
-      {isBeam && (
-        <span className="relative flex h-3 w-3">
-          <span className="btn-ping"></span>
-          <span className="btn-ping_dot"></span>
-        </span>
-      )}
-      {name}
+    <button type="button" onClick={onClick} className={classes}>
+      {children}
     </button>
   );
 };

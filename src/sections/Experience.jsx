@@ -1,64 +1,44 @@
-import { Suspense, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import Reveal from '../components/Reveal.jsx';
+import SectionHeading from '../components/SectionHeading.jsx';
+import { experiences } from '../constants/index.js';
 
-import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/CanvasLoader.jsx';
-import { workExperiences } from '../constants/index.js';
-
-const WorkExperience = () => {
-  const [animationName, setAnimationName] = useState('idle');
+const Experience = () => {
   return (
-    <section className="c-space my-20" id="work">
-      <div className="w-full text-white-600 ">
-        <p className="head-text">My Work Experience</p>
+    <section id="experience" className="section-pad">
+      <div className="c-space mx-auto max-w-7xl">
+        <SectionHeading eyebrow="Experience" title="Where I've" accent="worked" />
 
-        <div className="work-container ">
-          <div className="work-canvas">
-            <Canvas>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+        <div className="relative border-l border-white/10 pl-8 sm:pl-10">
+          {experiences.map((exp, i) => (
+            <Reveal key={exp.id} className="relative pb-10 last:pb-0" delay={i * 0.08}>
+              <span className="absolute -left-[41px] top-1 flex h-5 w-5 items-center justify-center sm:-left-[49px]">
+                <span className="h-3.5 w-3.5 rounded-full bg-accent-gradient shadow-glow" />
+              </span>
 
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
-              </Suspense>
-            </Canvas>
-          </div>
-
-          <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
-                  className="work-content_container group">
-                  <div className="flex flex-col h-full justify-start items-center py-2">
-                    <div className="work-content_logo">
-                      <img className="w-full h-full" src={item.icon} alt="" />
-                    </div>
-
-                    <div className="work-content_bar" />
-                  </div>
-
-                  <div className="sm:p-5 px-2.5 py-5">
-                    <p className="font-bold text-white-800">{item.name}</p>
-                    <p className="text-sm mb-5">
-                      {item.pos} -- <span>{item.duration}</span>
-                    </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500">{item.title}</p>
-                  </div>
+              <div className="glass glass-hover p-7">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="font-display text-xl font-semibold text-white">{exp.role}</h3>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    {exp.duration}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
+                <p className="mt-1 gradient-text text-sm font-semibold">{exp.company}</p>
+
+                <ul className="mt-5 space-y-3">
+                  {exp.points.map((point, idx) => (
+                    <li key={idx} className="flex gap-3 text-sm leading-relaxed text-white/65">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-cyan" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default WorkExperience;
+export default Experience;

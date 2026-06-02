@@ -1,101 +1,43 @@
-import { useState } from 'react';
-import Globe from 'react-globe.gl';
-
-import Buttone from '../components/Button.jsx';
+import Reveal from '../components/Reveal.jsx';
+import SectionHeading from '../components/SectionHeading.jsx';
+import StatCounter from '../components/StatCounter.jsx';
+import { profile, stats, education } from '../constants/index.js';
 
 const About = () => {
-  const [hasCopied, setHasCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('omgajananwankar123@gmail.com');
-    setHasCopied(true);
-    setTimeout(() => setHasCopied(false), 2000);
-  };
-
   return (
-    <section className="c-space my-20" id="about">
-      <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
-            <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
+    <section id="about" className="section-pad">
+      <div className="c-space mx-auto max-w-7xl">
+        <SectionHeading eyebrow="About" title="Turning ideas into" accent="shipped products" />
 
-            <div>
-              <p className="grid-headtext">Hi, I’m Om Wankar</p>
-              <p className="grid-subtext">
-                With 1 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
-                and responsive websites.
-              </p>
-            </div>
-          </div>
-        </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Reveal className="glass glass-hover lg:col-span-2 p-8" delay={0.05}>
+            <p className="text-lg leading-relaxed text-white/75">{profile.about}</p>
+            <p className="mt-4 leading-relaxed text-white/50">{profile.summary}</p>
+          </Reveal>
 
-        <div className="col-span-1 xl:row-span-3">
-          <div className="grid-container">
-            <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
-
-            <div>
-              <p className="grid-headtext">Tech Stack</p>
-              <p className="grid-subtext">
-                I specialize in a variety of languages, frameworks, and tools that allow me to build robust and scalable
-                applications
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-span-1 xl:row-span-4">
-          <div className="grid-container">
-            <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-              <Globe
-                height={326}
-                width={326}
-                backgroundColor="rgba(0, 0, 0, 0)"
-                backgroundImageOpacity={0.5}
-                showAtmosphere
-                showGraticules
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
-              />
-            </div>
-            <div>
-              <p className="grid-headtext">I’m very flexible with time zone communications & locations</p>
-              <p className="grid-subtext">I'm based in Pune and open to remote work worldwide.</p>
-              <Buttone name="Contact Me" isBeam containerClass="w-full mt-10" />
-            </div>
-          </div>
-        </div>
-
-        <div className="xl:col-span-2 xl:row-span-3">
-          <div className="grid-container">
-            <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
-
-            <div>
-              <p className="grid-headtext">My Passion for Coding</p>
-              <p className="grid-subtext">
-                I love solving problems and building things through code. Programming isn't just my
-                profession—it's my passion. I enjoy exploring new technologies, and enhancing my skills.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="xl:col-span-1 xl:row-span-2">
-          <div className="grid-container">
-            <img
-              src="assets/grid4.png"
-              alt="grid-4"
-              className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
-            />
-
-            <div className="space-y-2">
-              <p className="grid-subtext text-center">Contact me</p>
-              <div className="copy-container" onClick={handleCopy}>
-                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                <p className="lg:text-xl md:text-xl font-medium text-gray_gradient text-white">omgajananwankar123@gmail.com</p>
+          <Reveal className="glass glass-hover p-8" delay={0.1}>
+            <span className="eyebrow">Education</span>
+            {education.map((e) => (
+              <div key={e.id} className="mt-5">
+                <p className="text-lg font-semibold text-white">{e.degree}</p>
+                <p className="mt-1 text-white/60">{e.school}</p>
+                <p className="mt-3 inline-block rounded-full bg-accent-gradient px-3 py-1 text-xs font-semibold text-white">
+                  {e.duration}
+                </p>
               </div>
-            </div>
-          </div>
+            ))}
+          </Reveal>
+        </div>
+
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal key={s.id} className="glass glass-hover p-6 text-center" delay={i * 0.08}>
+              <p className="font-display text-4xl font-bold gradient-text">
+                <StatCounter value={s.value} prefix={s.prefix || ''} suffix={s.suffix || ''} />
+              </p>
+              <p className="mt-2 text-sm text-white/55">{s.label}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
