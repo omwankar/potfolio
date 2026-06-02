@@ -140,6 +140,7 @@ export const projects = [
     title: 'Clarusto',
     subtitle: 'Enterprise CRM & HR Platform',
     period: '2024 – Present',
+    image: '/assets/project-clarusto.png',
     description:
       'A full-stack CRM/HR platform with 20+ REST modules covering sales pipeline, quotations, invoicing, time-tracking, HR, and document management.',
     highlights: [
@@ -154,6 +155,7 @@ export const projects = [
     title: 'Live Market Analysis',
     subtitle: 'F&O AI Trading Assistant',
     period: '2024',
+    image: '/assets/project-trading.png',
     description:
       'An AI-assisted NIFTY/BANKNIFTY decision-support system integrating Zerodha Kite, Yahoo Finance, and NSE bhavcopy with automatic multi-source fallback.',
     highlights: [
@@ -168,6 +170,7 @@ export const projects = [
     title: 'Cheapest Product Finder',
     subtitle: 'AI Price Comparison Engine',
     period: 'Nov 2025 – Present',
+    image: '/assets/project-pricefinder.png',
     description:
       'An AI-powered price comparison system achieving 90%+ product-matching accuracy across 1,500+ real-time listings using NLP-based entity normalization and deduplication.',
     highlights: [

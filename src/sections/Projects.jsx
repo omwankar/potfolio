@@ -16,7 +16,18 @@ const Projects = () => {
         <div className="grid gap-6 lg:grid-cols-3">
           {projects.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.08} className="group h-full">
-              <article className="glass glass-hover flex h-full flex-col overflow-hidden p-7">
+              <article className="glass glass-hover flex h-full flex-col overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
+                </div>
+
+                <div className="flex flex-1 flex-col p-7">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <h3 className="font-display text-xl font-semibold text-white">{project.title}</h3>
@@ -46,6 +57,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
+                </div>
                 </div>
               </article>
             </Reveal>
