@@ -15,12 +15,20 @@ const Experience = () => {
                 <span className="h-3.5 w-3.5 rounded-full bg-accent-gradient shadow-glow" />
               </span>
 
-              <div className="glass glass-hover p-7">
+              <div className="glass glass-hover relative overflow-hidden p-7">
+                <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-accent-indigo/20 blur-2xl" />
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="font-display text-xl font-semibold text-white">{exp.role}</h3>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
-                    {exp.duration}
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {exp.current && (
+                      <span className="rounded-full bg-accent-gradient px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
+                        Current
+                      </span>
+                    )}
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                      {exp.duration}
+                    </span>
+                  </div>
                 </div>
                 <p className="mt-1 gradient-text text-sm font-semibold">{exp.company}</p>
 

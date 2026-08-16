@@ -55,7 +55,8 @@ const Contact = () => {
         />
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <Reveal className="glass p-8" delay={0.05}>
+          <Reveal className="glass relative overflow-hidden p-8" delay={0.05}>
+            <div className="pointer-events-none absolute -left-12 bottom-0 h-40 w-40 rounded-full bg-accent-cyan/15 blur-3xl" />
             <p className="text-lg font-semibold text-white">Get in touch</p>
             <p className="mt-2 text-sm leading-relaxed text-white/55">
               Based in {profile.location}, open to remote work worldwide.

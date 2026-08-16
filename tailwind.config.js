@@ -31,6 +31,7 @@ export default {
       boxShadow: {
         glow: '0 0 40px -10px rgba(139, 92, 246, 0.5)',
         'glow-cyan': '0 0 40px -10px rgba(34, 211, 238, 0.45)',
+        'glow-lg': '0 24px 80px -20px rgba(99, 102, 241, 0.45)',
       },
       keyframes: {
         aurora: {

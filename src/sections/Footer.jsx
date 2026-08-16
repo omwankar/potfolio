@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
 
         <p className="text-xs text-white/40">
-          © {new Date().getFullYear()} {profile.name}. All rights reserved.
+          © {new Date().getFullYear()} {profile.name} · Built with React & Vite
         </p>
       </div>
     </footer>

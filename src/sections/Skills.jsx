@@ -17,7 +17,9 @@ const Skills = () => {
           {skillGroups.map((group, i) => (
             <Reveal key={group.id} className="glass glass-hover p-6" delay={i * 0.06}>
               <div className="flex items-center gap-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-accent-gradient" />
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-gradient text-xs font-bold text-white">
+                  0{group.id}
+                </span>
                 <h3 className="font-display text-lg font-semibold text-white">{group.title}</h3>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">

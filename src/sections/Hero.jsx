@@ -3,9 +3,9 @@ import { profile, marqueeSkills } from '../constants/index.js';
 import Button from '../components/Button.jsx';
 
 const highlights = [
-  { label: 'AI / ML', value: 'Claude · Gemini · Scikit-learn' },
+  { label: 'AI / ML', value: 'Claude · Scikit-learn' },
   { label: 'Full-Stack', value: 'React · Node · Python' },
-  { label: 'Shipped', value: '3 production projects' },
+  { label: 'Now', value: 'SDE-1 · Clarusto' },
 ];
 
 const floatBadges = [
@@ -49,6 +49,9 @@ const Hero = () => {
 
             <motion.p {...fadeUp(0.12)} className="mt-4 text-xl font-medium text-white/80 sm:text-2xl">
               {profile.role}
+            </motion.p>
+            <motion.p {...fadeUp(0.14)} className="mt-2 text-sm font-medium text-white/45">
+              {profile.title} at {profile.company} · {profile.location}
             </motion.p>
 
             <motion.p {...fadeUp(0.18)} className="mt-5 max-w-xl text-base leading-relaxed text-white/55">
@@ -104,7 +107,7 @@ const Hero = () => {
                   {'  '}<span className="text-white/50">name:</span>{' '}
                   <span className="text-emerald-300">&apos;Om Wankar&apos;</span>,{'\n'}
                   {'  '}<span className="text-white/50">role:</span>{' '}
-                  <span className="text-emerald-300">&apos;Full-Stack + AI/ML&apos;</span>,{'\n'}
+                  <span className="text-emerald-300">&apos;SDE-1 · Clarusto&apos;</span>,{'\n'}
                   {'  '}<span className="text-white/50">stack:</span>{' '}
                   <span className="text-white/80">[</span>
                   <span className="text-emerald-300">&apos;React&apos;</span>,{' '}
@@ -112,7 +115,7 @@ const Hero = () => {
                   <span className="text-emerald-300">&apos;Python&apos;</span>
                   <span className="text-white/80">]</span>,{'\n'}
                   {'  '}<span className="text-white/50">ai:</span>{' '}
-                  <span className="text-emerald-300">&apos;Claude · Gemini · Groq&apos;</span>,{'\n'}
+                  <span className="text-emerald-300">&apos;Claude · Scikit-learn&apos;</span>,{'\n'}
                   {'  '}<span className="text-white/50">openToWork:</span>{' '}
                   <span className="text-accent-cyan">true</span>,{'\n'}
                   <span className="text-white/80">{'}'}</span>;

@@ -9,7 +9,7 @@ import Footer from './sections/Footer';
 
 function App() {
   return (
-    <div className="bg-aurora relative min-h-screen overflow-x-hidden">
+    <div className="bg-aurora bg-grain relative min-h-screen overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />

@@ -10,14 +10,16 @@ export const navLinks = [
 export const profile = {
   name: 'Om Wankar',
   role: 'Full-Stack Developer & AI/ML Engineer',
+  title: 'SDE-1',
+  company: 'Clarusto Technologies',
   location: 'Pune, India',
   email: 'omgajananwankar123@gmail.com',
   phone: '+91 9325156044',
   resume: '/Om_Wankar_Resume.pdf',
   summary:
-    'Full-Stack Developer & AI/ML Engineer with hands-on experience building enterprise CRM platforms, LLM-integrated products, and data-driven applications. Proficient in React/Next.js, Node.js, Python, and cloud-native architectures — skilled at integrating Anthropic Claude, Google Gemini, Groq, and Scikit-learn into real-world systems.',
+    'Full-Stack Developer & AI/ML Engineer with hands-on experience building enterprise CRM platforms, LLM-integrated products, and data-driven applications. Proficient in React/Next.js, Node.js, Python, and cloud-native architectures. Skilled at integrating Anthropic Claude and Scikit-learn into real-world systems.',
   about:
-    'I love automating workflows, surfacing business insights, and shipping scalable software. From RBAC-protected CRM backends to AI trading assistants and ML-powered comparison engines, I enjoy turning complex problems into clean, production-ready products.',
+    'I am passionate about automating workflows, surfacing business insights, and delivering scalable software. Currently SDE-1 at Clarusto Technologies — shipping CRM/HR platforms, LLM-integrated products, and ML systems that turn messy business data into decisions.',
 };
 
 export const socials = [
@@ -48,13 +50,10 @@ export const skillGroups = [
     title: 'AI / ML',
     skills: [
       'Anthropic Claude API',
-      'Google Gemini',
-      'Groq',
-      'NVIDIA AI',
       'Scikit-learn',
       'NLP / TF-IDF',
       'Text classification',
-      'Prompt engineering',
+      'LLM prompt engineering',
       'pandas',
       'NumPy',
       'Walk-forward backtesting',
@@ -65,12 +64,13 @@ export const skillGroups = [
     title: 'Frontend',
     skills: [
       'React 18/19',
-      'Next.js 15/16',
+      'Next.js 15/16 (App Router)',
       'Vite',
       'Tailwind CSS',
       'Radix UI',
       'shadcn/ui',
       'TanStack Query',
+      'GSAP / Lenis',
       'Three.js / R3F',
       'Streamlit',
     ],
@@ -98,7 +98,19 @@ export const skillGroups = [
   {
     id: 5,
     title: 'Tools',
-    skills: ['Git', 'Docker', 'GCP', 'GitHub Actions', 'Travis CI', 'Stripe', 'Resend', 'Cloudinary', 'Zerodha Kite', 'PDFKit'],
+    skills: [
+      'Git',
+      'Docker',
+      'GCP',
+      'GitHub Actions',
+      'Travis CI',
+      'Stripe',
+      'Resend',
+      'Cloudinary',
+      'Zerodha Kite',
+      'PDFKit',
+      'Cursor',
+    ],
   },
 ];
 
@@ -123,9 +135,10 @@ export const marqueeSkills = [
 export const experiences = [
   {
     id: 1,
-    role: 'SDE Intern',
-    company: 'Avirait Technologies, Pune',
-    duration: 'Jan 2025 – Mar 2025',
+    role: 'SDE-1',
+    company: 'Clarusto Technologies, Pune',
+    duration: 'April 2025 – Present',
+    current: true,
     points: [
       'Built an ML-powered credit-card reward tracking system using Scikit-learn and feature engineering — achieved 95% insight accuracy and identified $50K in annual savings across 10K+ transactions.',
       'Designed an NLP-based transaction categorization pipeline; boosted user engagement by 25% and retention by 40% through data-driven personalization.',
@@ -139,12 +152,18 @@ export const projects = [
     id: 1,
     title: 'Clarusto',
     subtitle: 'Enterprise CRM & HR Platform',
-    period: '2024 – Present',
+    period: 'Mar 2026 – Present',
+    featured: true,
+    extra: false,
+    accent: 'from-indigo-500/40 via-violet-500/20 to-cyan-400/20',
     image: '/assets/project-clarusto.png',
+    live: 'https://crm-o-9nwq.vercel.app',
+    github: 'https://github.com/omwankar/CRM-O',
+    extraLive: { label: 'Logistics Site', href: 'https://cl2-nine.vercel.app' },
     description:
-      'A full-stack CRM/HR platform with 20+ REST modules covering sales pipeline, quotations, invoicing, time-tracking, HR, and document management.',
+      'A full-stack CRM/HR platform with 20+ REST modules covering sales pipeline, quotations, invoicing, time-tracking, HR, and document management — deployed on Vercel + Node.',
     highlights: [
-      'Integrated Anthropic Claude with low-temperature structured prompts to auto-generate invoice & quotation summaries, cutting manual review time by 40%.',
+      'Integrated Anthropic Claude with structured low-temperature prompts to auto-generate invoice and quotation summaries, cutting manual review time by 40%.',
       'Automated invoice pipeline: multi-tax calculations, sequential numbering (INV-YYYY-####), PDFKit generation, Supabase Storage upload, and Resend email delivery.',
       'Composable RBAC middleware (user / manager / super_admin) protecting 50+ endpoints, with Postgres RLS migrations and audit logging.',
     ],
@@ -155,7 +174,11 @@ export const projects = [
     title: 'Live Market Analysis',
     subtitle: 'F&O AI Trading Assistant',
     period: '2024',
+    featured: false,
+    extra: false,
+    accent: 'from-cyan-400/30 via-emerald-400/15 to-indigo-500/20',
     image: '/assets/project-trading.png',
+    github: 'https://github.com/omwankar/live-market-anaysis',
     description:
       'An AI-assisted NIFTY/BANKNIFTY decision-support system integrating Zerodha Kite, Yahoo Finance, and NSE bhavcopy with automatic multi-source fallback.',
     highlights: [
@@ -170,14 +193,39 @@ export const projects = [
     title: 'Cheapest Product Finder',
     subtitle: 'AI Price Comparison Engine',
     period: 'Nov 2025 – Present',
+    featured: false,
+    extra: false,
+    accent: 'from-violet-500/35 via-fuchsia-500/15 to-cyan-400/20',
     image: '/assets/project-pricefinder.png',
+    live: 'https://cheapestproductfinder.vercel.app',
+    github: 'https://github.com/omwankar/Cheapest-Product-Finder-',
     description:
       'An AI-powered price comparison system achieving 90%+ product-matching accuracy across 1,500+ real-time listings using NLP-based entity normalization and deduplication.',
     highlights: [
       'Trained multi-class text classifiers with Scikit-learn (TF-IDF + Logistic Regression / Random Forest) reaching 85%+ accuracy.',
       'Reduced manual comparison effort by 70% through automated matching.',
-      'FastAPI backend for real-time ingestion & price aggregation, with an LLM summarizer surfacing best deals as structured JSON.',
+      'FastAPI backend for real-time ingestion and price aggregation, with an LLM summarizer surfacing best deals as structured JSON.',
     ],
     tags: ['Python', 'Scikit-learn', 'NLP / TF-IDF', 'FastAPI', 'pandas', 'LLM Summarizer'],
+  },
+  {
+    id: 4,
+    title: 'InsightAxis',
+    subtitle: 'AI Market Research & Industry Intelligence',
+    period: '2026',
+    featured: false,
+    extra: true,
+    accent: 'from-teal-400/25 via-indigo-500/15 to-cyan-400/20',
+    image: '/assets/project-insightaxis.png',
+    live: 'https://marketreashed.vercel.app',
+    github: 'https://github.com/omwankar/marketreashed',
+    description:
+      'An AI market-intelligence product that turns industry data into research briefs, charts, and decision-ready reports.',
+    highlights: [
+      'Interactive research dashboard with Recharts visualizations and animated report flows.',
+      'Structured industry briefs covering freight, supply-chain, and commercial market signals.',
+      'Production Vite + React app with serverless API routes and a motion-first UI.',
+    ],
+    tags: ['React', 'Vite', 'Recharts', 'Framer Motion', 'Serverless API'],
   },
 ];
