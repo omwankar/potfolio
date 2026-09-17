@@ -84,9 +84,9 @@ const Projects = () => {
       <div className="c-space mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Selected work"
-          title="Projects from"
-          accent="the resume"
-          subtitle="Clarusto, Live Market Analysis, and Cheapest Product Finder — plus one extra live build from GitHub."
+          title="Things I've"
+          accent="built"
+          subtitle="Loadrift, Live Market Analysis, and Cheapest Product Finder — plus one extra live build from GitHub."
         />
 
         <Reveal>
