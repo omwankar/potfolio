@@ -86,7 +86,7 @@ const Projects = () => {
           eyebrow="Selected work"
           title="Things I've"
           accent="built"
-          subtitle="Loadrift, Live Market Analysis, and Cheapest Product Finder — plus one extra live build from GitHub."
+          subtitle="Loadrift plus the resume projects — Harbour Transcript Judge, AI PR Review Agent, and Scout — with live demos where they exist."
         />
 
         <Reveal>
