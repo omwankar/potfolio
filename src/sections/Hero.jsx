@@ -3,8 +3,8 @@ import { profile, marqueeSkills } from '../constants/index.js';
 import Button from '../components/Button.jsx';
 
 const highlights = [
-  { label: 'AI / ML', value: 'Claude · Scikit-learn' },
-  { label: 'Full-Stack', value: 'React · Node · Python' },
+  { label: 'AI / ML', value: 'Claude · LangGraph · Eval' },
+  { label: 'Stack', value: 'Python · TypeScript' },
   { label: 'Now', value: 'SDE-1 · Clarusto' },
 ];
 
@@ -115,7 +115,7 @@ const Hero = () => {
                   <span className="text-emerald-300">&apos;Python&apos;</span>
                   <span className="text-white/80">]</span>,{'\n'}
                   {'  '}<span className="text-white/50">ai:</span>{' '}
-                  <span className="text-emerald-300">&apos;Claude · Scikit-learn&apos;</span>,{'\n'}
+                  <span className="text-emerald-300">&apos;Claude · LangGraph · Eval&apos;</span>,{'\n'}
                   {'  '}<span className="text-white/50">openToWork:</span>{' '}
                   <span className="text-accent-cyan">true</span>,{'\n'}
                   <span className="text-white/80">{'}'}</span>;

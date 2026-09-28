@@ -10,10 +10,10 @@ const Skills = () => {
           eyebrow="Skills"
           title="The tools I build"
           accent="with"
-          subtitle="A full-stack toolkit spanning AI/ML, modern web frontends, scalable backends, and cloud-native data."
+          subtitle="Languages, AI/ML, product, and tools — matching the resume, plus a few from shipped agents and eval work."
         />
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {skillGroups.map((group, i) => (
             <Reveal key={group.id} className="glass glass-hover p-6" delay={i * 0.06}>
               <div className="flex items-center gap-3">
