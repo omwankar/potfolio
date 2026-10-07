@@ -10,7 +10,7 @@ const Skills = () => {
           eyebrow="Skills"
           title="The tools I build"
           accent="with"
-          subtitle="Languages, AI/ML, product, and tools — matching the resume, plus a few from shipped agents and eval work."
+          subtitle="What I actually use on shipped work — not a laundry list."
         />
 
         <div className="grid gap-6 md:grid-cols-2">

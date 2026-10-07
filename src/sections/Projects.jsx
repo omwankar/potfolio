@@ -86,7 +86,7 @@ const Projects = () => {
           eyebrow="Selected work"
           title="Things I've"
           accent="built"
-          subtitle="Loadrift plus the resume projects — Harbour Transcript Judge, AI PR Review Agent, and Scout — with live demos where they exist."
+          subtitle="Four ships. Live demo on the hero. Discovery notes below — problem, constraint, tradeoff, outcome."
         />
 
         <Reveal>
@@ -141,9 +141,11 @@ const Projects = () => {
             <Reveal key={project.id} delay={i * 0.08} className="group h-full">
               <article className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-glow">
                 <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${project.accent} opacity-60`} />
-                <div className="relative p-4 pb-0">
-                  <BrowserFrame src={project.image} alt={`${project.title} preview`} />
-                </div>
+                {project.image && (
+                  <div className="relative p-4 pb-0">
+                    <BrowserFrame src={project.image} alt={`${project.title} preview`} />
+                  </div>
+                )}
 
                 <div className="relative flex flex-1 flex-col p-6 sm:p-7">
                   <div className="flex items-start justify-between gap-3">

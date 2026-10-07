@@ -7,13 +7,11 @@ const About = () => {
   return (
     <section id="about" className="section-pad">
       <div className="c-space mx-auto max-w-7xl">
-        <SectionHeading eyebrow="About" title="Turning ideas into" accent="shipped products" />
+        <SectionHeading eyebrow="About" title="What I care" accent="about" />
 
         <div className="grid gap-6 lg:grid-cols-3">
           <Reveal className="glass glass-hover relative overflow-hidden lg:col-span-2 p-8" delay={0.05}>
-            <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent-violet/20 blur-3xl" />
             <p className="text-lg leading-relaxed text-white/75">{profile.about}</p>
-            <p className="mt-4 leading-relaxed text-white/50">{profile.summary}</p>
           </Reveal>
 
           <Reveal className="glass glass-hover flex flex-col justify-between p-8" delay={0.1}>

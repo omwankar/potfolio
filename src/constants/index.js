@@ -1,10 +1,9 @@
 export const navLinks = [
   { id: 1, name: 'Home', href: '#home' },
-  { id: 2, name: 'About', href: '#about' },
-  { id: 3, name: 'Skills', href: '#skills' },
+  { id: 2, name: 'Work', href: '#projects' },
+  { id: 3, name: 'Discovery', href: '#discovery' },
   { id: 4, name: 'Experience', href: '#experience' },
-  { id: 5, name: 'Projects', href: '#projects' },
-  { id: 6, name: 'Contact', href: '#contact' },
+  { id: 5, name: 'Contact', href: '#contact' },
 ];
 
 export const profile = {
@@ -29,10 +28,9 @@ export const socials = [
 ];
 
 export const stats = [
-  { id: 1, value: 95, suffix: '%', label: 'ML insight accuracy' },
-  { id: 2, value: 50, prefix: '$', suffix: 'K', label: 'Annual savings identified' },
-  { id: 3, value: 20, suffix: '+', label: 'REST modules architected' },
-  { id: 4, value: 90, suffix: '%+', label: 'Product-match accuracy' },
+  { id: 1, value: 33, suffix: '', label: 'Loadrift sim components' },
+  { id: 2, value: 480, suffix: '', label: 'labelled Harbour traces' },
+  { id: 3, value: 95, suffix: '%', label: 'ML insight accuracy at work' },
 ];
 
 export const education = [
@@ -131,18 +129,27 @@ export const projects = [
     featured: true,
     extra: false,
     accent: 'from-indigo-500/40 via-violet-500/20 to-cyan-400/20',
-    image: '/assets/project-loadrift.png',
     live: 'https://loadrift.vercel.app',
     github: 'https://github.com/omwankar/loadrift',
-    extraLive: { label: 'Glossary', href: 'https://loadrift.vercel.app/glossary' },
+    extraLive: { label: 'Docs', href: 'https://loadrift.vercel.app/glossary' },
+    docs: 'https://loadrift.vercel.app/glossary',
+    image: '/assets/demo-retry-storm.png',
     description:
-      'A browser-based system design simulator: place components on a canvas, wire them together, then raise traffic and watch real queueing behaviour — latency percentiles, retry storms, circuit breakers — from a discrete-event engine, not a fake animation.',
+      'Build a system on a canvas, raise traffic, and watch real queueing — not a formula dressed up as a chart.',
     highlights: [
-      '33 components and 23 worked examples, including teaching scenarios and reconstructions of Netflix, Stripe, Discord, Uber, and more.',
-      'Real discrete-event engine: finite server slots, gamma-distributed service times, measured p50/p95/p99, and abandoned work that still burns capacity.',
-      'Chaos controls, deterministic replay, and a test suite that asserts request conservation — runs entirely in the browser with no backend or telemetry.',
+      '33 components, 23 examples, and a discrete-event engine with finite slots, measured percentiles, and abandoned work that still burns capacity.',
     ],
-    tags: ['React', 'TypeScript', 'Vite', 'Discrete-event sim', 'SVG canvas', 'Vitest'],
+    tags: ['React', 'TypeScript', 'Vite', 'Discrete-event sim'],
+    discovery: {
+      problem:
+        'System design advice is static: “add a cache.” People never feel why p99 falls off a cliff past 80% utilisation, or how retries turn one slow database into an outage.',
+      constraint:
+        'Every number has to be true. A plausible fake is worse than no number. The engine cannot depend on the UI, so it can be driven from a script and tested.',
+      tradeoff:
+        'Hand-rolled SVG and charts instead of a charting library — smaller bundle, predictable render. Runs entirely in the browser: no account, no backend, no telemetry.',
+      outcome:
+        'Retry Storm at 100 rps: the database is 99.9% busy and goodput is zero, because retries tripled 100 offered requests into 348 hitting a full database.',
+    },
   },
   {
     id: 2,
@@ -155,13 +162,21 @@ export const projects = [
     image: '/assets/project-harbour.png',
     github: 'https://github.com/omwankar/op04-harbour-transcript-judge',
     description:
-      'A deterministic judge that reads an agent trajectory — customer message, tool calls, tool results — and returns a verdict, a confidence, and a failure category. The submitted judge makes no model call.',
+      'A deterministic judge over agent trajectories: verdict, confidence, and failure category — with no model call in the submitted judge.',
     highlights: [
-      'Fit pass rates on 480 labelled development traces with case-grouped smoothing: balanced accuracy 0.867, MCC 0.801, AUROC 0.911, ECE 0.045 — vs a 0.50 always-pass baseline.',
-      'Failure analysis: 42 development errors sit in mixed “escalated instead of acting” leaves; only 3 of 480 errors occur at confidence ≥ 0.85.',
-      'Python evaluation loop with a failure taxonomy and calibration, not a prompt that hopes the model is right.',
+      '480 labelled traces: balanced accuracy 0.867, MCC 0.801, AUROC 0.911, ECE 0.045 vs a 0.50 always-pass baseline.',
     ],
-    tags: ['Python', 'Evaluation', 'Calibration', 'Failure taxonomy', 'AUROC / MCC / ECE'],
+    tags: ['Python', 'Evaluation', 'Calibration'],
+    discovery: {
+      problem:
+        'You cannot grade an agent with a gold answer when the “right” action depends on the transcript. A second LLM-as-judge just adds another model you cannot trust.',
+      constraint:
+        'The submitted judge makes no model call. Pass/fail has to come from rules over the trajectory, and confidence has to mean something.',
+      tradeoff:
+        'Case-grouped smoothing over 480 development traces instead of fitting noise. Errors cluster in mixed “escalated instead of acting” leaves; only 3 of 480 fail at confidence ≥ 0.85.',
+      outcome:
+        'A calibrated gate you can put in front of auto-actions: high confidence is actually high confidence, against a 0.50 always-pass baseline.',
+    },
   },
   {
     id: 3,
@@ -174,13 +189,21 @@ export const projects = [
     image: '/assets/project-prreview.png',
     github: 'https://github.com/omwankar/PR-reaview_system',
     description:
-      'A pull-request review pipeline: verify the webhook, dedupe, enqueue, then four specialists (security, quality, tests, docs) that run only with retrieved code context.',
+      'Webhook → dedupe → enqueue → four specialists that only speak with retrieved code context.',
     highlights: [
-      'Hybrid retrieval fuses vector similarity and full-text search with reciprocal rank fusion. Findings are schema-valid.',
-      'Auto-post happens only when confidence is high and nothing is critical; otherwise it goes to a human queue.',
-      'Golden-case regression gate, append-only event log, and a budget check before model spend.',
+      'Auto-post only when confidence is high and nothing is critical; otherwise a human queue. Budget check before model spend.',
     ],
-    tags: ['Python', 'FastAPI', 'LangGraph', 'Hybrid retrieval', 'Next.js'],
+    tags: ['Python', 'FastAPI', 'LangGraph'],
+    discovery: {
+      problem:
+        'PR bots dump generic comments. Reviewers ignore them. You need findings tied to the actual diff, with a kill switch when the model is guessing.',
+      constraint:
+        'Specialists (security, quality, tests, docs) run only with retrieved context. Schema-valid findings. No auto-post on critical issues.',
+      tradeoff:
+        'Hybrid retrieval (vector + full-text, reciprocal rank fusion) over “stuff the whole repo in the prompt.” Golden-case regression so a good run stays good.',
+      outcome:
+        'A pipeline that can post when it is sure, and wait when it is not — plus an append-only event log and a spend cap.',
+    },
   },
   {
     id: 4,
@@ -194,71 +217,20 @@ export const projects = [
     live: 'https://scout-production-05ad.up.railway.app',
     github: 'https://github.com/omwankar/scout',
     description:
-      'A browser agent that takes a plain-English research goal, searches and browses public pages, and finishes as a validated competitive brief with sources — exportable as Markdown or JSON.',
+      'Plain-English research goal in, sourced competitive brief out — Markdown or JSON — with a human on the loop.',
     highlights: [
-      'Streams thoughts, actions, and screenshots live while the agent works.',
-      'A person can stop the run, approve navigations, or steer it in plain language mid-flight.',
-      'TypeScript stack with Claude, Playwright, Fastify, and Next.js — deployed on Railway.',
+      'Live stream of thoughts, actions, and screenshots. Stop, approve navigations, or steer mid-flight.',
     ],
-    tags: ['TypeScript', 'Claude', 'Playwright', 'Fastify', 'Next.js'],
-  },
-  {
-    id: 5,
-    title: 'Live Market Analysis',
-    subtitle: 'F&O AI Trading Assistant',
-    period: '2024',
-    featured: false,
-    extra: false,
-    accent: 'from-cyan-400/30 via-emerald-400/15 to-indigo-500/20',
-    image: '/assets/project-trading.png',
-    github: 'https://github.com/omwankar/live-market-anaysis',
-    description:
-      'An AI-assisted NIFTY/BANKNIFTY decision-support system integrating Zerodha Kite, Yahoo Finance, and NSE bhavcopy with automatic multi-source fallback.',
-    highlights: [
-      'Full technical-analysis engine: RSI, EMA/SMA, ATR, Bollinger Bands, VWAP, pivot S/R, and candlestick patterns.',
-      'Options intelligence module computing PCR bands, OI walls, and max pain.',
-      'Grounded Claude prompts for natural-language trade explanations, Telegram bot alerts, and a live Streamlit dashboard.',
-    ],
-    tags: ['Python', 'Anthropic Claude', 'Streamlit', 'Zerodha Kite', 'pandas', 'NumPy', 'Telegram Bot'],
-  },
-  {
-    id: 6,
-    title: 'Cheapest Product Finder',
-    subtitle: 'AI Price Comparison Engine',
-    period: 'Nov 2025 – Present',
-    featured: false,
-    extra: false,
-    accent: 'from-violet-500/35 via-fuchsia-500/15 to-cyan-400/20',
-    image: '/assets/project-pricefinder.png',
-    live: 'https://cheapestproductfinder.vercel.app',
-    github: 'https://github.com/omwankar/Cheapest-Product-Finder-',
-    description:
-      'An AI-powered price comparison system achieving 90%+ product-matching accuracy across 1,500+ real-time listings using NLP-based entity normalization and deduplication.',
-    highlights: [
-      'Trained multi-class text classifiers with Scikit-learn (TF-IDF + Logistic Regression / Random Forest) reaching 85%+ accuracy.',
-      'Reduced manual comparison effort by 70% through automated matching.',
-      'FastAPI backend for real-time ingestion and price aggregation, with an LLM summarizer surfacing best deals as structured JSON.',
-    ],
-    tags: ['Python', 'Scikit-learn', 'NLP / TF-IDF', 'FastAPI', 'pandas', 'LLM Summarizer'],
-  },
-  {
-    id: 7,
-    title: 'InsightAxis',
-    subtitle: 'AI Market Research & Industry Intelligence',
-    period: '2026',
-    featured: false,
-    extra: true,
-    accent: 'from-teal-400/25 via-indigo-500/15 to-cyan-400/20',
-    image: '/assets/project-insightaxis.png',
-    live: 'https://marketreashed.vercel.app',
-    github: 'https://github.com/omwankar/marketreashed',
-    description:
-      'An AI market-intelligence product that turns industry data into research briefs, charts, and decision-ready reports.',
-    highlights: [
-      'Interactive research dashboard with Recharts visualizations and animated report flows.',
-      'Structured industry briefs covering freight, supply-chain, and commercial market signals.',
-      'Production Vite + React app with serverless API routes and a motion-first UI.',
-    ],
-    tags: ['React', 'Vite', 'Recharts', 'Framer Motion', 'Serverless API'],
+    tags: ['TypeScript', 'Claude', 'Playwright'],
+    discovery: {
+      problem:
+        'Competitive research dumps you in a pile of tabs. You want a brief with sources, and you want to see what the agent did — not a black box.',
+      constraint:
+        'Every claim needs a source. A person can interrupt: stop, approve a navigation, or steer in plain language.',
+      tradeoff:
+        'Playwright + Claude over a single-shot “search API then summarise.” Streaming the run costs more UX work and is the only way you can trust it.',
+      outcome:
+        'A Railway-hosted agent that finishes as a validated brief, exportable as Markdown or JSON.',
+    },
   },
 ];
