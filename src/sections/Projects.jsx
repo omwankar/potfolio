@@ -1,5 +1,6 @@
 import Reveal from '../components/Reveal.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
+import ProjectReel from '../components/ProjectReel.jsx';
 import { projects } from '../constants/index.js';
 
 const ArrowIcon = () => (
@@ -52,27 +53,12 @@ const ProjectLinks = ({ live, github, extraLive, compact = false }) => (
   </div>
 );
 
-const BrowserFrame = ({ src, alt, tall = false }) => (
-  <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-ink-200">
-    <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/[0.04] px-3 py-2">
-      <span className="h-2 w-2 rounded-full bg-red-400/80" />
-      <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
-      <span className="h-2 w-2 rounded-full bg-green-400/80" />
-      <span className="ml-2 truncate rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-white/35">
-        {alt}
-      </span>
-    </div>
-    <div className={`relative overflow-hidden ${tall ? 'h-64 sm:h-80 lg:h-full lg:min-h-[22rem]' : 'h-48'}`}>
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-    </div>
-  </div>
-);
+const projectFrames = (project) =>
+  project.demoFrames?.length
+    ? project.demoFrames
+    : project.image
+      ? [{ src: project.image, caption: project.title }]
+      : [];
 
 const Projects = () => {
   const featured = projects.find((p) => p.featured) || projects[0];
@@ -86,7 +72,7 @@ const Projects = () => {
           eyebrow="Selected work"
           title="Things I've"
           accent="built"
-          subtitle="Four ships. Live demo on the hero. Discovery notes below — problem, constraint, tradeoff, outcome."
+          subtitle="Four ships. Each card plays a short demo. Discovery notes below — problem, constraint, tradeoff, outcome."
         />
 
         <Reveal>
@@ -94,7 +80,7 @@ const Projects = () => {
             <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${featured.accent} opacity-80`} />
             <div className="relative grid items-stretch gap-0 lg:grid-cols-[1.15fr_0.85fr]">
               <div className="p-4 sm:p-6 lg:p-7">
-                <BrowserFrame src={featured.image} alt={`${featured.title} live preview`} tall />
+                <ProjectReel frames={projectFrames(featured)} alt={`${featured.title} demo`} tall />
               </div>
 
               <div className="flex flex-col p-6 sm:p-8 lg:py-10 lg:pr-10">
@@ -141,9 +127,9 @@ const Projects = () => {
             <Reveal key={project.id} delay={i * 0.08} className="group h-full">
               <article className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-glow">
                 <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${project.accent} opacity-60`} />
-                {project.image && (
+                {projectFrames(project).length > 0 && (
                   <div className="relative p-4 pb-0">
-                    <BrowserFrame src={project.image} alt={`${project.title} preview`} />
+                    <ProjectReel frames={projectFrames(project)} alt={`${project.title} demo`} />
                   </div>
                 )}
 
@@ -196,7 +182,7 @@ const Projects = () => {
                   <article className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-glow">
                     <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${project.accent} opacity-60`} />
                     <div className="relative p-4 pb-0">
-                      <BrowserFrame src={project.image} alt={`${project.title} live preview`} />
+                      <ProjectReel frames={projectFrames(project)} alt={`${project.title} demo`} />
                     </div>
                     <div className="relative flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex items-start justify-between gap-3">

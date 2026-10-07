@@ -134,6 +134,13 @@ export const projects = [
     extraLive: { label: 'Docs', href: 'https://loadrift.vercel.app/glossary' },
     docs: 'https://loadrift.vercel.app/glossary',
     image: '/assets/demo-retry-storm.png',
+    demoFrames: [
+      { src: '/assets/demo-frame-1.jpg', caption: 'Healthy canvas — ~30 rps, every service green' },
+      { src: '/assets/demo-frame-2.jpg', caption: 'Queue filling at ~70 rps, p95 climbing' },
+      { src: '/assets/demo-frame-3.jpg', caption: 'Retries overflow the queue — goodput falling' },
+      { src: '/assets/demo-frame-4.jpg', caption: 'Collapsed: DB 99% busy, goodput 0' },
+      { src: '/assets/demo-retry-storm.png', caption: 'Retry storm on the real canvas' },
+    ],
     description:
       'Build a system on a canvas, raise traffic, and watch real queueing — not a formula dressed up as a chart.',
     highlights: [
@@ -160,6 +167,11 @@ export const projects = [
     extra: false,
     accent: 'from-amber-400/25 via-indigo-500/15 to-cyan-400/20',
     image: '/assets/project-harbour.png',
+    demoFrames: [
+      { src: '/assets/project-harbour.png', caption: 'Verdict PASS at 0.87 confidence — no model in the judge' },
+      { src: '/assets/harbour-frame-2.jpg', caption: 'Transcript timeline: tool calls scored against rules' },
+      { src: '/assets/harbour-frame-3.jpg', caption: 'Calibration gate: fail when the model escalates instead of acting' },
+    ],
     github: 'https://github.com/omwankar/op04-harbour-transcript-judge',
     description:
       'A deterministic judge over agent trajectories: verdict, confidence, and failure category — with no model call in the submitted judge.',
@@ -187,6 +199,11 @@ export const projects = [
     extra: false,
     accent: 'from-emerald-400/25 via-violet-500/15 to-indigo-500/20',
     image: '/assets/project-prreview.png',
+    demoFrames: [
+      { src: '/assets/pr-frame-2.jpg', caption: 'Security specialist reading the diff first' },
+      { src: '/assets/project-prreview.png', caption: 'Four specialists — security, quality, tests, docs' },
+      { src: '/assets/pr-frame-3.jpg', caption: 'Critical finding sent to the human queue, not auto-posted' },
+    ],
     github: 'https://github.com/omwankar/PR-reaview_system',
     description:
       'Webhook → dedupe → enqueue → four specialists that only speak with retrieved code context.',
@@ -214,6 +231,11 @@ export const projects = [
     extra: false,
     accent: 'from-cyan-400/30 via-teal-400/15 to-indigo-500/20',
     image: '/assets/project-scout.png',
+    demoFrames: [
+      { src: '/assets/project-scout.png', caption: 'Live thought stream while the brief drafts' },
+      { src: '/assets/scout-frame-2.jpg', caption: 'Agent navigating sources with a human on the loop' },
+      { src: '/assets/scout-frame-3.jpg', caption: 'Sourced brief ready — export Markdown or JSON' },
+    ],
     live: 'https://scout-production-05ad.up.railway.app',
     github: 'https://github.com/omwankar/scout',
     description:

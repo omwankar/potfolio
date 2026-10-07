@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { profile } from '../constants/index.js';
 import Button from '../components/Button.jsx';
-import DemoPlayer from '../components/DemoPlayer.jsx';
+import HeroSignal from '../components/HeroSignal.jsx';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -33,9 +33,7 @@ const Hero = () => {
             </motion.p>
 
             <motion.div {...fadeUp(0.2)} className="mt-8 flex flex-wrap gap-3">
-              <Button href="https://loadrift.vercel.app" target="_blank">
-                Product demo
-              </Button>
+              <Button href="#projects">See the work</Button>
               <Button href="#discovery" variant="ghost">
                 Discovery docs
               </Button>
@@ -51,7 +49,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative">
             <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-accent-gradient opacity-20 blur-3xl" />
-            <DemoPlayer />
+            <HeroSignal />
           </motion.div>
         </div>
       </div>
