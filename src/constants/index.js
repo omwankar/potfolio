@@ -83,7 +83,7 @@ export const skillGroups = [
   {
     id: 4,
     title: 'Tools',
-    skills: ['Git', 'Docker', 'GitHub Actions', 'Railway', 'Vercel'],
+    skills: ['Git', 'Docker', 'GitHub Actions', 'Render', 'Vercel'],
   },
 ];
 
@@ -102,7 +102,7 @@ export const marqueeSkills = [
   'Postgres',
   'Scikit-learn',
   'Node.js',
-  'Railway',
+  'Render',
 ];
 
 export const experiences = [
@@ -123,10 +123,45 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
+    title: 'Proxy',
+    subtitle: 'Agents date on your behalf',
+    period: '2026',
+    featured: true,
+    extra: false,
+    accent: 'from-rose-400/30 via-orange-400/15 to-violet-500/20',
+    live: 'https://proxy-agentic-dating.vercel.app',
+    github: 'https://github.com/omwankar/proxy-agentic-dating',
+    image: '/assets/proxy-landing.png',
+    demoFrames: [
+      { src: '/assets/proxy-landing.png', caption: 'LinkedIn + Instagram in — the agent goes on the date' },
+      { src: '/assets/proxy-profile.png', caption: 'Agent profile built from two public sources only' },
+      { src: '/assets/proxy-date.png', caption: 'Live date: two agents talking on their people\'s behalf' },
+      { src: '/assets/proxy-debrief.png', caption: 'After-date debrief — what worked, what concerned' },
+      { src: '/assets/proxy-rankings.png', caption: 'Who fits whom — dated pairs rank first' },
+    ],
+    description:
+      'Every person is an agent. It reads public LinkedIn and Instagram, dates the others, and returns a ranking of who actually fits — scored from the debrief, not a swipe.',
+    highlights: [
+      '33 people, 528 pairs pre-scored, 103 dates on record. Rankings put people they actually dated first.',
+    ],
+    tags: ['Next.js', 'TypeScript', 'Agents'],
+    discovery: {
+      problem:
+        'A bio is a guess. You cannot tell from a LinkedIn headline how a conversation would actually feel, so matchmaking stays a vibe check.',
+      constraint:
+        'Exactly two public sources — LinkedIn and Instagram. The person never chats. Their agent does, then you get the ranking.',
+      tradeoff:
+        'Agents date each other instead of you chatting first. Rankings prefer pairs that already went on a date (scored from the debrief) over the matchmaker’s pre-date estimate.',
+      outcome:
+        'A live board: 33 people, 528 pre-scored pairs, 103 dates, with transcripts, debriefs, and a “who fits whom” ranking.',
+    },
+  },
+  {
+    id: 2,
     title: 'Loadrift',
     subtitle: 'System Design Simulator',
     period: '2026',
-    featured: true,
+    featured: false,
     extra: false,
     accent: 'from-indigo-500/40 via-violet-500/20 to-cyan-400/20',
     live: 'https://loadrift.vercel.app',
@@ -159,7 +194,7 @@ export const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: 'Harbour Transcript Judge',
     subtitle: 'Evaluation without ground truth',
     period: '2026',
@@ -191,7 +226,7 @@ export const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: 'AI PR Review Agent',
     subtitle: 'Retrieval-grounded multi-agent review',
     period: '2026',
@@ -220,39 +255,6 @@ export const projects = [
         'Hybrid retrieval (vector + full-text, reciprocal rank fusion) over “stuff the whole repo in the prompt.” Golden-case regression so a good run stays good.',
       outcome:
         'A pipeline that can post when it is sure, and wait when it is not — plus an append-only event log and a spend cap.',
-    },
-  },
-  {
-    id: 4,
-    title: 'Scout',
-    subtitle: 'Research agent that writes a sourced brief',
-    period: '2026',
-    featured: false,
-    extra: false,
-    accent: 'from-cyan-400/30 via-teal-400/15 to-indigo-500/20',
-    image: '/assets/project-scout.png',
-    demoFrames: [
-      { src: '/assets/project-scout.png', caption: 'Live thought stream while the brief drafts' },
-      { src: '/assets/scout-frame-2.jpg', caption: 'Agent navigating sources with a human on the loop' },
-      { src: '/assets/scout-frame-3.jpg', caption: 'Sourced brief ready — export Markdown or JSON' },
-    ],
-    live: 'https://scout-production-05ad.up.railway.app',
-    github: 'https://github.com/omwankar/scout',
-    description:
-      'Plain-English research goal in, sourced competitive brief out — Markdown or JSON — with a human on the loop.',
-    highlights: [
-      'Live stream of thoughts, actions, and screenshots. Stop, approve navigations, or steer mid-flight.',
-    ],
-    tags: ['TypeScript', 'Claude', 'Playwright'],
-    discovery: {
-      problem:
-        'Competitive research dumps you in a pile of tabs. You want a brief with sources, and you want to see what the agent did — not a black box.',
-      constraint:
-        'Every claim needs a source. A person can interrupt: stop, approve a navigation, or steer in plain language.',
-      tradeoff:
-        'Playwright + Claude over a single-shot “search API then summarise.” Streaming the run costs more UX work and is the only way you can trust it.',
-      outcome:
-        'A Railway-hosted agent that finishes as a validated brief, exportable as Markdown or JSON.',
     },
   },
 ];

@@ -61,8 +61,9 @@ const projectFrames = (project) =>
       : [];
 
 const Projects = () => {
-  const featured = projects.find((p) => p.featured) || projects[0];
-  const resumeRest = projects.filter((p) => !p.featured && !p.extra);
+  const main = projects.filter((p) => !p.extra);
+  const featured = main[0];
+  const resumeRest = main.slice(1);
   const extra = projects.filter((p) => p.extra);
 
   return (
